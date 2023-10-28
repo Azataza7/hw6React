@@ -1,8 +1,14 @@
 import Square from './Square';
 import React, {useState} from 'react';
+import ResetButton from '../ResetButton/ResetButton';
+
+interface Props {
+  hasItem: boolean;
+  clicked: boolean;
+}
 
 const GameSquare = () => {
-  const [squares, setSquares] = useState([]);
+  const [squares, setSquares] = useState<Props[]>([]);
 
   const createItems = () => {
     const quantityOfSquares = 36;
@@ -20,12 +26,18 @@ const GameSquare = () => {
     return squaresCopy;
   };
 
-  const [items, setItems] = useState(createItems);
+  const [items, setItems] = useState<Props[]>(createItems);
 
-  const isClicked = (index) => {
-    const squareCopy = [...items];
-    squareCopy[index].clicked = true;
-    setItems(squareCopy);
+  const isClicked = (index: number) => {
+    setItems((prevState) => {
+      const squareCopy = [...prevState];
+      squareCopy[index] = {...squareCopy[index], clicked: true};
+      return squareCopy;
+    });
+  };
+
+  const resetByClick = () => {
+    setItems(createItems);
   };
 
   return (
@@ -33,6 +45,9 @@ const GameSquare = () => {
       {items.map((item, index) => (
         <Square key={index} hasItem={item.hasItem} clicked={item.clicked} isClicked={() => isClicked(index)}/>
       ))}
+      <div className="panel">
+        <ResetButton onClick={resetByClick}/>
+      </div>
     </div>
   );
 };

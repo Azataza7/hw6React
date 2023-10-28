@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Square from '../components/GameSquare/Square';
 import GameSquare from '../components/GameSquare/GameSquare';
+import ResetButton from '../components/ResetButton/ResetButton';
 
 function App() {
 
