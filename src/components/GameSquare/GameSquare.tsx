@@ -22,10 +22,16 @@ const GameSquare = () => {
 
   const [items, setItems] = useState(createItems);
 
+  const isClicked = (index) => {
+    const squareCopy = [...items];
+    squareCopy[index].clicked = true;
+    setItems(squareCopy);
+  };
+
   return (
     <div className={`game-square`}>
       {items.map((item, index) => (
-        <Square key={index} hasItem={item.hasItem} clicked={item.clicked}/>
+        <Square key={index} hasItem={item.hasItem} clicked={item.clicked} isClicked={() => isClicked(index)}/>
       ))}
     </div>
   );
