@@ -67,3 +67,25 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.App {
+}
+
+.square {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: grey;
+}
+
+.game-square {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 400px;
+  gap: 12px;
+
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 15px 0;
+}
