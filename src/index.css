@@ -79,6 +79,14 @@ button:focus-visible {
   border: 1px solid grey;
 }
 
+.square:hover {
+  border-color: #646cff;
+}
+.square:focus,
+.square:focus-visible {
+  outline: 8px auto -webkit-focus-ring-color;
+}
+
 .game-square {
   display: flex;
   flex-wrap: wrap;
@@ -89,4 +97,11 @@ button:focus-visible {
   margin: 0 auto;
   border: 1px solid red;
   padding: 15px 0;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
 }

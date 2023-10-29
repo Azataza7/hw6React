@@ -1,6 +1,7 @@
 import Square from './Square';
 import React, {useState} from 'react';
 import ResetButton from '../ResetButton/ResetButton';
+import TriesCounter from '../TriesCounter/TriesCounter';
 
 interface Props {
   hasItem: boolean;
@@ -36,16 +37,31 @@ const GameSquare = () => {
     });
   };
 
+  const triesCounter = () => {
+    let counter = 0;
+    items.forEach((item) => {
+      if (item.clicked) {
+        counter++;
+      }
+    });
+    return counter;
+  };
+
   const resetByClick = () => {
     setItems(createItems);
   };
 
+  const squareList = (
+    items.map((item, index) => (
+      <Square key={index} hasItem={item.hasItem} clicked={item.clicked} isClicked={() => isClicked(index)}/>
+    ))
+  );
+
   return (
     <div className={`game-square`}>
-      {items.map((item, index) => (
-        <Square key={index} hasItem={item.hasItem} clicked={item.clicked} isClicked={() => isClicked(index)}/>
-      ))}
+      {squareList}
       <div className="panel">
+        <TriesCounter counter={triesCounter()}/>
         <ResetButton onClick={resetByClick}/>
       </div>
     </div>
