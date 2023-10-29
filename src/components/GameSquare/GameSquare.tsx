@@ -43,7 +43,7 @@ const GameSquare = () => {
     });
 
     if (items[index].hasItem) {
-      setGameOff(true)
+      setGameOff(true);
     }
   };
 
@@ -70,7 +70,7 @@ const GameSquare = () => {
 
   return (
     <div className={`game-square`}>
-      <GameOverAlert/>
+      <GameOverAlert display={gameOff}/>
       {squareList}
       <div className="panel">
         <TriesCounter counter={triesCounter()}/>

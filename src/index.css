@@ -80,6 +80,7 @@ button:focus-visible {
 
 .square:hover {
   border-color: #646cff;
+  transform: scale(1.1);
 }
 .square:focus,
 .square:focus-visible {
@@ -96,6 +97,8 @@ button:focus-visible {
   margin: 0 auto;
   border: 1px solid red;
   padding: 15px 0;
+
+  position: relative;
 }
 
 .panel {
@@ -103,4 +106,16 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   width: 250px;
+}
+
+.alert-notification {
+  position: absolute;
+  top: 39%;
+  left: 24%;
+  border: 3px solid gold;
+  width: 220px;
+
+  color: gold;
+  font-weight: 600;
+  font-size: 20px;
 }
