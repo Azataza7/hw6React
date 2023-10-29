@@ -2,6 +2,7 @@ import Square from './Square';
 import React, {useState} from 'react';
 import ResetButton from '../ResetButton/ResetButton';
 import TriesCounter from '../TriesCounter/TriesCounter';
+import GameOverAlert from '../alerts/GameOverAlert';
 
 interface Props {
   hasItem: boolean;
@@ -28,13 +29,22 @@ const GameSquare = () => {
   };
 
   const [items, setItems] = useState<Props[]>(createItems);
+  const [gameOff, setGameOff] = useState(false);
 
   const isClicked = (index: number) => {
+    if (gameOff) {
+      return;
+    }
+
     setItems((prevState) => {
       const squareCopy = [...prevState];
       squareCopy[index] = {...squareCopy[index], clicked: true};
       return squareCopy;
     });
+
+    if (items[index].hasItem) {
+      setGameOff(true)
+    }
   };
 
   const triesCounter = () => {
@@ -48,6 +58,7 @@ const GameSquare = () => {
   };
 
   const resetByClick = () => {
+    setGameOff(false);
     setItems(createItems);
   };
 
@@ -59,6 +70,7 @@ const GameSquare = () => {
 
   return (
     <div className={`game-square`}>
+      <GameOverAlert/>
       {squareList}
       <div className="panel">
         <TriesCounter counter={triesCounter()}/>

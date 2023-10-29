@@ -7,6 +7,7 @@ interface Props {
 }
 
 const Square: React.FC<Props> = ({hasItem, clicked, isClicked}) => {
+
   const boxStyle: React.CSSProperties = {
     backgroundColor: 'grey', backgroundImage: 'none',
     backgroundSize: 'none', backgroundRepeat: 'none',
