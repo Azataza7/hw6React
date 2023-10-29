@@ -16,7 +16,7 @@ const TriesCounter: React.FC<Props> = ({counter}) => {
 
   return (
     <span className="counter" style={counterStyle}>
-      Tries: {counter}
+      {counter}
     </span>
   );
 };

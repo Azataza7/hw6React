@@ -9,18 +9,17 @@ interface Props {
 const Square: React.FC<Props> = ({hasItem, clicked, isClicked}) => {
 
   const boxStyle: React.CSSProperties = {
-    backgroundColor: 'grey', backgroundImage: 'none',
-    backgroundSize: 'none', backgroundRepeat: 'none',
+    backgroundColor: 'none', backgroundImage: 'url("/public/square.svg")',
+    backgroundSize: 'none', backgroundRepeat: 'no-repeat',
     backgroundPosition: 'none',
   };
 
   if (clicked) {
-    boxStyle.backgroundColor = 'transparent';
+    boxStyle.backgroundImage = 'none';
   }
 
   if (clicked && hasItem) {
     boxStyle.backgroundImage = 'url("/public/gold.svg")';
-    boxStyle.backgroundRepeat = 'no-repeat';
     boxStyle.backgroundPosition = 'center';
   }
 

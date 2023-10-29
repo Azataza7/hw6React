@@ -48,7 +48,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: darkseagreen;
 }
 button:focus,
 button:focus-visible {
@@ -79,7 +79,7 @@ button:focus-visible {
 }
 
 .square:hover {
-  border-color: #646cff;
+  border-color: green;
   transform: scale(1.1);
 }
 .square:focus,
@@ -95,17 +95,17 @@ button:focus-visible {
   gap: 12px;
 
   margin: 0 auto;
-  border: 1px solid red;
   padding: 15px 0;
-
+  border: 1px solid gold;
+  box-shadow: 5px 5px 20px rgba(255, 215, 0, 0.5);
   position: relative;
 }
 
 .panel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 250px;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .alert-notification {
@@ -118,4 +118,12 @@ button:focus-visible {
   color: gold;
   font-weight: 600;
   font-size: 20px;
+}
+
+.counter {
+  font-weight: bolder;
+  font-size: 24px;
+  width: 50px;
+  background: #1a1a1a;
+  border-radius: 8px;
 }
